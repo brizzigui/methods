@@ -1,6 +1,5 @@
 # Implementação do método da bisseção para encontrar zeros de funções
 
-
 import math
 
 def function(x: float) -> float:
