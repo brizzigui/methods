@@ -12,11 +12,11 @@ print("| - | -- | -- | -- | ----- | --- |")
 while True:
     xn = an - ((bn-an)/(f(bn)-f(an)))*f(an)
 
-    print(f"| {i:10d} | {an:.9e} | {xn:.9e} | {bn:.9e} | {f(xn):.9e} |", end=" ")
+    print(f"| {i:10d} | {an:.10g} | {xn:.10g} | {bn:.10g} | {f(xn):.10g} |", end=" ")
 
     if i > 0:
         error = abs(xn - prev)/xn
-        print(f"{error:.9e} |")
+        print(f"{error:.10g} |")
         if error < 1e-6:
             print(f"## Resultado achado: {xn}")
             break

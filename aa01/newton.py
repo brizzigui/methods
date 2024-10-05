@@ -17,10 +17,10 @@ print("|-|-|-|-|-|")
 while True:
     if i > 0:
         error = abs(x - prev)/abs(x)
-        print(f"| {i:2d} | {x:.9e} | {f(x):.9e} | {f_line(x):.9e} | {error:.9e} |")
+        print(f"| {i:2d} | {x:.10g} | {f(x):.10g} | {f_line(x):.10g} | {error:.10g} |")
 
     else:
-        print(f"| {i:2d} | {x:.9e} | {f(x):.9e} | {f_line(x):.9e} | |")
+        print(f"| {i:2d} | {x:.10g} | {f(x):.10g} | {f_line(x):.10g} | |")
 
 
     if i > 0 and error < 1e-6:

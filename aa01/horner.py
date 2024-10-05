@@ -16,7 +16,7 @@ def print_coeficients(a_size: int, b_list: list, c_list: list) -> None:
     for k, item in enumerate(b_list):
         print(f"| {k} |", end="")
         for value in item:
-            print(f"{value:.9e}| ", end="")
+            print(f"{value:.10g}| ", end="")
         print()
 
     print("## Coeficientes ci do Polinômio f(x)")
@@ -34,7 +34,7 @@ def print_coeficients(a_size: int, b_list: list, c_list: list) -> None:
             if idx == a_size-1:
                 continue
 
-            print(f"{value:.9e}| ", end="")
+            print(f"{value:.10g}| ", end="")
         print()
 
 def f(x: float) -> float:
@@ -67,10 +67,10 @@ def main() -> None:
 
     idx = 0
     while True:
-        print(f"| {idx:10d} | {x:.9e} | {f(x):.9e} | {f_line(x):.9e} |", end=" ")
+        print(f"| {idx:10d} | {x:.10g} | {f(x):.10g} | {f_line(x):.10g} |", end=" ")
         if idx > 0:
             relative_error = abs(x-prev)/abs(x)
-            print(f" {relative_error:.9e} |")
+            print(f" {relative_error:.10g} |")
 
         else:
             print(" |")

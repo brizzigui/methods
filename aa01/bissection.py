@@ -21,10 +21,10 @@ def main() -> None:
     while True:
         xn = (an + bn)/2
         
-        print(f"| {i:10d} | {an:.9e} | {xn:.9e} | {bn:.9e} | {function(xn):.9e} |", end=" ")
+        print(f"| {i:10d} | {an:.10g} | {xn:.10g} | {bn:.10g} | {function(xn):.10g} |", end=" ")
         if i > 0:
             relative_error = abs(xn-prev)/abs(xn)
-            print(f"\t{relative_error:.9e} |")
+            print(f"\t{relative_error:.10g} |")
 
         else:
             print(" |")
