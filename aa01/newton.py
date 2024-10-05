@@ -11,18 +11,20 @@ def f_line(x: float) -> float:
 x = 12
 i = 0
 
-print(" n\txn\t\tf(xn)\t\tf'(xn)\t\tERn")
+print("| n | xn | f(xn) | f'(xn) | ERn |")
+print("|-|-|-|-|-|")
 
 while True:
     if i > 0:
         error = abs(x - prev)/abs(x)
-        print(f"{i:2d}\t{x:.10f}\t{f(x):.10f}\t{f_line(x):.10f}\t{error:.10f}")
+        print(f"| {i:2d} | {x:.9e} | {f(x):.9e} | {f_line(x):.9e} | {error:.9e} |")
 
     else:
-        print(f"{i:2d}\t{x:.10f}\t{f(x):.10f}\t{f_line(x):.10f}")
+        print(f"| {i:2d} | {x:.9e} | {f(x):.9e} | {f_line(x):.9e} | |")
+
 
     if i > 0 and error < 1e-6:
-        print("Resultado achado")
+        print(f"\n## Resultado achado: {x}")
         break
 
     prev = x

@@ -6,21 +6,23 @@ bn = 16
 
 i = 0
 
-print("         n        an             xn             bn           f(xn)          ERn")
+print("| n | an | xn | bn | f(xn) | ERn |")
+print("| - | -- | -- | -- | ----- | --- |")
 
 while True:
     xn = an - ((bn-an)/(f(bn)-f(an)))*f(an)
 
-    print(f"{i:10d}  {an:.10f}  {xn:.10f}  {bn:.10f}  {f(xn):.10f}", end=" ")
+    print(f"| {i:10d} | {an:.9e} | {xn:.9e} | {bn:.9e} | {f(xn):.9e} |", end=" ")
 
     if i > 0:
         error = abs(xn - prev)/xn
-        print(f"\t{error:.10f}")
+        print(f"{error:.9e} |")
         if error < 1e-6:
+            print(f"## Resultado achado: {xn}")
             break
 
     else:
-        print()
+        print(" |")
 
     
     if f(xn) >= 0 and f(an) >= 0:
