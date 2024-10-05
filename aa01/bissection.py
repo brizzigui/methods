@@ -4,7 +4,7 @@
 import math
 
 def function(x: float) -> float:
-    return x**3 - 2*x**2 -4*x + 4
+    return x**5 + 28.3001*x**4 + 308.576*x**3 + 1614.77*x**2 + 4044.8*x + 3880.73
 
 
 a, b = map(float, input("Digite os limites do intervalo (a b): ").split())
@@ -12,26 +12,22 @@ a, b = map(float, input("Digite os limites do intervalo (a b): ").split())
 an, bn = a, b
 i = 0
 
-print("         n       an          xn          bn         f(xn)       ERn")
+print("         n        an             xn             bn           f(xn)          ERn")
 
 while True:
-    i += 1
     xn = (an + bn)/2
     
-    print(f"{i:10d}  {an:10f}  {xn:10f}  {bn:10f}  {function(xn):10f}", end=" ")
-    if i > 1:
-        print(f"{abs(xn-prev):10f}")
+    print(f"{i:10d}  {an:.9e}  {xn:.9e}  {bn:.9e}  {function(xn):.9e}", end=" ")
+    if i > 0:
+        relative_error = abs(xn-prev)/abs(xn)
+        print(f"\t{relative_error:.9e}")
 
     else:
         print()
 
 
-    if math.isclose(function(xn), 0.0, abs_tol=0.0001):
+    if i > 0 and relative_error < 1e-6:
         print("Resultado achado")
-        break
-
-    if math.isclose(an, bn, abs_tol=0.0001):
-        print("Resultado não achado")
         break
 
     if function(xn) > 0 and function(an) > 0 or function(xn) < 0 and function(an) < 0:
@@ -41,3 +37,4 @@ while True:
         bn = xn
 
     prev = xn
+    i += 1

@@ -1,1 +1,0 @@
-# Implementação do método da secante para encontrar zeros de funções
