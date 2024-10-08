@@ -13,14 +13,14 @@ def main() -> None:
     i = 0
 
     print("Método da bissecção")
-    print("| n | an | xn | bn | f(xn) | ERn |")
-    print("|-|-|-|-|-|-|")
+    print("| n | an | xn | bn | f(an) | f(xn) | f(bn) | ERn |")
+    print("|-|-|-|-|-|-|-|-|")
 
 
     while True:
         xn = (an + bn)/2
         
-        print(f"| {i:10d} | {an:.10g} | {xn:.10g} | {bn:.10g} | {function(xn):.10g} |", end=" ")
+        print(f"| {i:10d} | {an:.10g} | {xn:.10g} | {bn:.10g} | {function(an):.10g} | {function(xn):.10g} | {function(bn):.10g} |", end=" ")
         if i > 0:
             relative_error = abs(xn-prev)/abs(xn)
             print(f"\t{relative_error:.10g} |")
