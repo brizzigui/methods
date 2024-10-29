@@ -61,8 +61,14 @@ def main() -> None:
         print()
 
     solutions = backsubstitute(mat, n)
-    for index in x_vector:
-        print(f"x{index+1} = {solutions[index]}; ")
+    ordered = []
+    for iter, index in enumerate(x_vector):
+        ordered.append((index+1, solutions[-iter-1]))
+
+    ordered.sort()
+
+    for v in ordered:
+        print(f"x{v[0]} = {v[1]}; ")
 
 
 if __name__ == "__main__":
