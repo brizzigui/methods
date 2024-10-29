@@ -1,6 +1,11 @@
+import sys
+
 def read_input() -> list:
     # input in tilles example format from aa02 test
-    n = int(input("Número de linhas: "))
+    sys.stdin.reconfigure(encoding='utf-8')
+    sys.stdout.reconfigure(encoding='utf-8')
+
+    n = int(input())
     
     a = []
     for _ in range(n):

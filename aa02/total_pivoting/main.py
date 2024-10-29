@@ -1,6 +1,11 @@
+import sys
+
 def read_input() -> list:
     # input in tilles example format from aa02 test
-    n = int(input("Número de linhas: "))
+    sys.stdin.reconfigure(encoding='utf-8')
+    sys.stdout.reconfigure(encoding='utf-8')
+
+    n = int(input())
     
     mat = []
     for _ in range(n):
@@ -17,10 +22,8 @@ def backsubstitute(mat, n) -> list:
 
     for i in range(n):
         value = mat[n-i-1][-1] 
-        print(value)
         for k in range(len(solutions)):
             value -= solutions[k] * mat[n-i-1][-k-2]
-            print(solutions[k], mat[n-i-1][-k-2])
 
         solutions.append(value/mat[n-i-1][n-i-1])
 
@@ -68,7 +71,7 @@ def main() -> None:
     ordered.sort()
 
     for v in ordered:
-        print(f"x{v[0]} = {v[1]}; ")
+        print(f"x{v[0]} = {v[1]}; ", end="")
 
 
 if __name__ == "__main__":
