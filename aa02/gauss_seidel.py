@@ -23,7 +23,7 @@ def main():
     error = {0: [float("inf")]*n} 
 
     k = 0
-    while any(e > 1e-6 for e in error[k]):
+    while any(e > 1e-5 for e in error[k]):
         for i in range(n):
             acc = 0
             for j in range(i):
