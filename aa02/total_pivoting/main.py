@@ -33,6 +33,20 @@ def main() -> None:
     mat, n = read_input()
     x_vector = [index for index in range(n)]
 
+    print('\\[')
+    print('A_{0} = \\begin{bmatrix}')
+    for line in mat:
+        for idx, value in enumerate(line):
+            if idx < len(line)-1:
+                print(f"{value:.10g}", end=" & ")
+
+            else:
+                print(f"{value:.10g}", end="\\\\\n")
+
+    print('\\end{bmatrix}')
+    print('\\]')
+    print()
+
     print()
 
     for i in range(n-1):
@@ -58,8 +72,20 @@ def main() -> None:
             for k in range(i+1, n+1):
                 mat[j][k] = mat[j][k] - mult * mat[i][k]
 
+        print('\\[')
+        print("A_{" + str(i+1) + "} = ", end="")
+        print('\\begin{bmatrix}')
         for line in mat:
-            print(line)
+            for idx, value in enumerate(line):
+                if idx < len(line)-1:
+                    print(f"{value:.10g}", end=" & ")
+
+                else:
+                    print(f"{value:.10g}", end="\\\\\n")
+
+        print('\\end{bmatrix}')
+        print('\\]')
+        print()
 
         print()
 
@@ -68,10 +94,10 @@ def main() -> None:
     for iter, index in enumerate(x_vector):
         ordered.append((index+1, solutions[-iter-1]))
 
-    ordered.sort()
+    ordered.sort(reverse=True)
 
     for v in ordered:
-        print(f"x{v[0]} = {v[1]}; ", end="")
+        print("x_{" + str(v[0]) + f"}} = {v[1]:.10g};\n")
 
 
 if __name__ == "__main__":

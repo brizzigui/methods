@@ -53,15 +53,71 @@ def main():
 
         k += 1
 
-    idx = 0
+    print("\\begin{table}[h!]")
+    print("\\centering")
+    string = "{" + "|c" * (n+1) + "|}"
+    print("\\begin{tabular}" + string)
+    print("\\hline")
+    string = "k " 
+    for idx in range(n):
+        string += ("& x_{" + str(idx+1) + ",k} ")
+    string += "\\\\"
+    print(string)
+    print("\\hline")
+
+
     for k, v in x.items():
-        print(idx, v)
-        idx += 1
+        print(k, end=" & ")
+        for idx, single_v in enumerate(v):
+            if idx < len(v)-1:
+                print(f"{single_v:.10g}", end=" & ")
+            else:
+                print(f"{single_v:.10g}", end=" \\\\\n")
+
+    print()
+
+    print("\\hline")
+    print("\\end{tabular}")
+    print("\\label{tab:data_table}")
+    print("\\end{table}")
+
+    print()
+
+
+    print("\\begin{table}[h!]")
+    print("\\centering")
+    print("\\small")
+    string = "{" + "|c" * (n+1) + "|}"
+    print("\\begin{tabular}" + string)
+    print("\\hline")
+    string = "k " 
+    for idx in range(n):
+        string += ("& x_{" + str(idx+1) + ",k} ")
+    string += "\\\\"
+    print(string)
+    print("\\hline")
     
-    idx = 0
+    
     for k, v in error.items():
-        print(idx, v)
-        idx += 1
+        print(k, end=" & ")
+        for idx, single_v in enumerate(v):
+            if single_v == float("inf"):
+                if idx < len(v)-1:
+                    print(f"-", end=" & ")
+                else:
+                    print(f"-", end=" \\\\\n")
+
+                continue
+            
+            if idx < len(v)-1:
+                print(f"{single_v:.10g}", end=" & ")
+            else:
+                print(f"{single_v:.10g}", end=" \\\\\n")
+
+    print("\\hline")
+    print("\\end{tabular}")
+    print("\\label{tab:data_table}")
+    print("\\end{table}")
 
 
 

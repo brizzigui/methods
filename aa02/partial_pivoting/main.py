@@ -34,6 +34,20 @@ def backsubstitute(mat, n) -> list:
 def main() -> None:    
     mat, n = read_input()
 
+    print('\\[')
+    print('A_{0} = \\begin{bmatrix}')
+    for line in mat:
+        for idx, value in enumerate(line):
+            if idx < len(line)-1:
+                print(f"{value:.10g}", end=" & ")
+
+            else:
+                print(f"{value:.10g}", end="\\\\\n")
+
+    print('\\end{bmatrix}')
+    print('\\]')
+    print()
+
 
     for i in range(n-1):
         max = 0
@@ -52,14 +66,26 @@ def main() -> None:
             for k in range(i+1, n+1):
                 mat[j][k] = mat[j][k] - mult * mat[i][k]
 
-    for line in mat:
-        print(line)
+        print('\\[')
+        print("A_{" + str(i+1) + "} = ", end="")
+        print('\\begin{bmatrix}')
+        for line in mat:
+            for idx, value in enumerate(line):
+                if idx < len(line)-1:
+                    print(f"{value:.10g}", end=" & ")
 
-    print()
+                else:
+                    print(f"{value:.10g}", end="\\\\\n")
+
+        print('\\end{bmatrix}')
+        print('\\]')
+        print()
+
+        
 
     solutions = backsubstitute(mat, n)
     for idx, v in enumerate(solutions):
-        print(f"x{len(solutions)-idx} = {v}; ")
+        print("x_{" + str(len(solutions)-idx) + f"}} = {v:.10g};\n")
 
 
 if __name__ == "__main__":
