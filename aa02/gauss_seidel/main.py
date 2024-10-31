@@ -95,7 +95,7 @@ def main():
     print("\\hline")
     string = "k " 
     for idx in range(n):
-        string += ("& x_{" + str(idx+1) + ",k} ")
+        string += ("& ER_{" + str(idx+1) + ",k} ")
     string += "\\\\"
     print(string)
     print("\\hline")

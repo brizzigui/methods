@@ -24,7 +24,7 @@ k & x_{1,k} & x_{2,k} & x_{3,k} & x_{4,k} & x_{5,k} & x_{6,k} & x_{7,k} \\
 \small
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
-k & x_{1,k} & x_{2,k} & x_{3,k} & x_{4,k} & x_{5,k} & x_{6,k} & x_{7,k} \\
+k & ER_{1,k} & ER_{2,k} & ER_{3,k} & ER_{4,k} & ER_{5,k} & ER_{6,k} & ER_{7,k} \\
 \hline
 0 & - & - & - & - & - & - & - \\
 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
