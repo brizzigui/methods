@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[left=1cm, right=1cm, top=3cm, bottom=3cm]{geometry}
+
+\title{AA04 - Métodos Numéricos Computacionais}
+\author{Guilherme Brizzi}
+\date{}
+
+\begin{document}
+
+\maketitle    
+
+\section{Regra do Trapézio}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+k & $A_{k}(z)$ & $ER_{k}$ \\
+\hline
+0 & 1.053896955 & 1 \\
+1 & 0.4800262779 & 1.195498463 \\
+2 & 0.2961962144 & 0.6206361002 \\
+3 & -0.04708837928 & 7.290218924 \\
+4 & -0.003245930494 & 13.50689698 \\
+5 & 0.02785355257 & 1.116535601 \\
+6 & 0.02892402242 & 0.03700971572 \\
+7 & 0.02921688847 & 0.0100238618 \\
+8 & 0.02929146581 & 0.002546043372 \\
+9 & 0.029310192 & 0.0006388965747 \\
+10 & 0.02931487861 & 0.0001598714261 \\
+11 & 0.02931605058 & 3.997703329e-05 \\
+12 & 0.02931634359 & 9.994831427e-06 \\
+13 & 0.02931641684 & 2.498743669e-06 \\
+14 & 0.02931643516 & 6.246881556e-07 \\
+\hline
+\end{tabular}
+\label{tab:data_table}
+\end{table}
+\newpage
+
+\section{Método de Simpson}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+k & $A_{k}(z)$ & $ER_{k}$ \\
+\hline
+0 & 0.1154329651 & 1 \\
+1 & -0.2206773291 & 1.523084839 \\
+2 & 0.01269826673 & 18.37853943 \\
+3 & -0.07946837569 & 1.159790188 \\
+4 & -0.07374753491 & 0.07757331529 \\
+5 & -0.07360018319 & 0.002002056382 \\
+6 & -0.07359207468 & 0.000110181916 \\
+7 & -0.0735915825 & 6.687910878e-06 \\
+8 & -0.07359155196 & 4.150052332e-07 \\
+\hline
+\end{tabular}
+\label{tab:data_table}
+\end{table}
+\newpage
+
+\section{Método de Gauss com 2 pontos gaussianos}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+k & $A_{k}(z)$ & $ER_{k}$ \\
+\hline
+0 & 0.1283462255 & 1 \\
+1 & 0.002612713428 & 48.12372868 \\
+2 & 0.05859229937 & 0.9554085869 \\
+3 & 0.04943879774 & 0.1851481435 \\
+4 & 0.04948004327 & 0.0008335790089 \\
+5 & 0.04948088442 & 1.699957258e-05 \\
+6 & 0.04948092627 & 8.457925543e-07 \\
+\hline
+\end{tabular}
+\label{tab:data_table}
+\end{table}
+\newpage
+
+\section{Método de Gauss com 3 pontos gaussianos}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+k & $A_{k}(z)$ & $ER_{k}$ \\
+\hline
+0 & 0.01077744158 & 1 \\
+1 & 0.003862751576 & 1.790094409 \\
+2 & 0.02710269185 & 0.8574771983 \\
+3 & 0.01755372566 & 0.5439851563 \\
+4 & 0.01915691606 & 0.08368729055 \\
+5 & 0.0190935806 & 0.003317107648 \\
+6 & 0.0190935598 & 1.089256641e-06 \\
+7 & 0.01909355952 & 1.472299902e-08 \\
+\hline
+\end{tabular}
+\label{tab:data_table}
+\end{table}
+\newpage
+
+\section{Valor total da integral}
+Somando as quatro contribuições, obtém-se o valor numérico da integral definida A: \\
+
+\centering
+$A = 0.02429936899$
+\end{document}
