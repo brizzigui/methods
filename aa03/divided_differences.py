@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def divided_differences() -> tuple[list, list, list]:
+def divided_differences(z: float) -> tuple[list, list, list]:
     number_pairs = 10
 
     print("x & y & ", end="")
@@ -16,6 +16,8 @@ def divided_differences() -> tuple[list, list, list]:
         x_cur, y_cur = map(float, input().split())
         x.append(x_cur)
         y.append(y_cur)
+
+    x, y = zip(*sorted(zip(x, y), key=lambda x: abs(x[0]-z)))
 
     matrix = []
     for _ in range(number_pairs):
@@ -76,7 +78,15 @@ def graph(matrix: list, size: int, x_points: list, y_points: list) -> None:
 
     # Plot the function
 
-    plt.plot(x_values, y_values, color="lightgreen")
+
+    if size == 4:
+        plt.plot(x_values, y_values, color="blue")
+    elif size == 6:
+        plt.plot(x_values, y_values, color="red")
+    elif size == 8:
+        plt.plot(x_values, y_values, color="orange")
+    elif size == 10:
+        plt.plot(x_values, y_values, color="lightgreen")
 
 
     ax = plt.gca()
@@ -88,19 +98,21 @@ def graph(matrix: list, size: int, x_points: list, y_points: list) -> None:
     plt.legend()
     plt.grid(True)
     plt.scatter(x_points, y_points, color="black", marker="o", zorder=10) 
-    plt.show()
+    plt.savefig(f'./graphs/own/p{size-2}.png', dpi=300)
         
+    plt.clf()
 
 
 def main() -> None:
-    matrix, x, y = divided_differences()
+    z = 0.821
+    matrix, x, y = divided_differences(z)
 
     print()
 
     past = None
     for size in range(2, len(matrix[0])+1):
         
-        result = apply_polynomial(matrix, 0.821, size)
+        result = apply_polynomial(matrix, z, size)
         print(f"{size-2:.10g} & {result:.10g} & ", end=" ")
 
         if past is not None:
@@ -112,9 +124,8 @@ def main() -> None:
         past = result
 
 
-        if size % 2 == 0:
-            # graph(matrix, size, x, y)
-            pass
+        if size % 2 == 0 and not size == 2:
+            graph(matrix, size, x, y)
         
 
     
