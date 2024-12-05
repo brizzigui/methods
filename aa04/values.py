@@ -21,14 +21,13 @@ t_b = 3.15
 
 
 # used values
-c1 = t_c1
-c2 = t_c2
-c3 = t_c3
-c4 = t_c4
+c1 = m_c1
+c2 = m_c2
+c3 = m_c3
+c4 = m_c4
 
-a = t_a
-b = t_b
-string = "tilles"
+a = m_a
+b = m_b
 
 def r() -> float:
     return (b - a) / 4
