@@ -225,12 +225,13 @@ def legendre_method() -> None:
         A[k] = ((2*k + 1) / 2 * result)
 
         if k == 0:
-            print(f"{k+1} & {A[k]} & - & - \\\\")
+            print(f"{k+1} & {A[k]:.6g} & - & - \\\\")
 
         else:
             eA[k] = 2 * A[k] ** 2 / (2 * k + 1)
-            eR[k] = eA[k] / sum([2 * A[j] ** 2 / (2 * j + 1) for j in range(n+1)])
-            print(f"{k+1} & {A[k]} & {eA[k]} & {eR[k]} \\\\")
+            beta = sum([2 * A[k] ** 2 / (2 * j + 1) for j in range(0, k+1)])
+            eR[k] = eA[k]/beta
+            print(f"{k+1} & {A[k]:.6g} & {eA[k]:.6g} & {eR[k]:.6g} \\\\")
 
     plot_legendre_method(A, n)
     latex.end_table()
